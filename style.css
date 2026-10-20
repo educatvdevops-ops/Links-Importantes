@@ -1,0 +1,119 @@
+/* ==========================================================
+   EDUCATV CAMPINAS - PÁGINA DE LINKS
+   Índice: 1. Variáveis  2. Base  3. Topo  4. Cabeçalho da página
+           5. Links  6. Rodapé
+   ========================================================== */
+
+/* ---------- 1. Variáveis (claro/escuro) ---------- */
+:root {
+  --navy: #021a52; --navy-2: #04246e; --royal: #0a3fbd;
+  --blue: #1a7cff; --cyan: #3fb6ff; --orange: #ffa726;
+  --bg: #ffffff; --ice: #eef5ff; --surface: #ffffff;
+  --text: #0b1f5c; --muted: #45577f; --line: #d3e2f8;
+  --shadow: 0 10px 30px rgba(10, 63, 189, .13);
+  --head: "Poppins", "Segoe UI", system-ui, sans-serif;
+  --body: "Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg:#061640; --ice:#0a1f52; --surface:#0d2760; --text:#eaf1ff; --muted:#a9bde3; --line:#22417f; --shadow: 0 10px 30px rgba(0,0,0,.35); }
+}
+:root[data-theme="dark"] { --bg:#061640; --ice:#0a1f52; --surface:#0d2760; --text:#eaf1ff; --muted:#a9bde3; --line:#22417f; --shadow: 0 10px 30px rgba(0,0,0,.35); }
+
+/* ---------- 2. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--navy); scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--body); font-size: 1.05rem; line-height: 1.6; }
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; }
+p { margin: 0; }
+h1, h2, h3 { font-family: var(--head); margin: 0; line-height: 1.12; }
+.wrap { width: min(1100px, 100% - 2.5rem); margin-inline: auto; }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 8px; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--orange); color: var(--navy); padding: .6rem 1rem; z-index: 60; font-weight: 700; }
+.skip:focus { left: 1rem; top: .5rem; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- 3. Topo ---------- */
+.top { background: var(--navy); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 78px; }
+.brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+.brand .owl { height: 54px; width: auto; }
+.brand .word { height: 40px; width: auto; }
+.top-tag { color: #dbe8ff; font-weight: 800; font-size: .98rem; padding: .5rem .1rem; position: relative; }
+.top-tag::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 3px; border-radius: 3px; background: var(--cyan); }
+@media (max-width: 480px) { .brand .owl { height: 46px; } .brand .word { height: 32px; } .top-tag { display: none; } }
+
+/* ---------- 4. Cabeçalho da página ---------- */
+.page-head { position: relative; color: #fff; overflow: hidden;
+  background:
+    radial-gradient(60% 90% at 85% 40%, rgba(63,182,255,.38), transparent 70%),
+    radial-gradient(40% 50% at 10% 100%, rgba(26,124,255,.28), transparent 70%),
+    linear-gradient(115deg, var(--navy) 0%, var(--navy-2) 45%, var(--royal) 100%);
+  padding: clamp(2rem, 5vw, 3.2rem) 0 clamp(5rem, 11vw, 8rem); }
+.page-head h1 { font-weight: 800; font-size: clamp(2rem, 4.8vw, 3.2rem); line-height: 1.05; }
+.page-head h1 .acc { background: linear-gradient(90deg, #1a8cff, #52c7ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.page-head p { margin-top: .9rem; max-width: 48ch; color: #e3edff; font-size: 1.15rem; }
+.finder { margin-top: 1.5rem; max-width: 520px; }
+.finder input { width: 100%; font: inherit; color: #fff; border-radius: 999px; border: 2px solid #2b5bb8; background: rgba(2,26,82,.6); padding: .7rem 1.3rem; }
+.finder input::placeholder { color: #9cc0ff; }
+.finder input:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 4px rgba(63,182,255,.25); }
+.page-head .wave { position: absolute; left: 0; bottom: -1px; width: 100%; height: clamp(60px, 10vw, 140px); line-height: 0; pointer-events: none; }
+.page-head .wave svg { width: 100%; height: 100%; }
+
+/* ---------- 5. Links ---------- */
+.lk { padding: clamp(2.5rem, 6vw, 4rem) 0; position: relative; }
+.lk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.3rem; align-items: start; }
+.lk-col { display: grid; gap: 1.3rem; }
+.lk-group { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); padding: 1.3rem 1.4rem 1rem; }
+.lk-group h3 { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: .7rem; }
+.lk-ico { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: rgba(26,124,255,.12); color: var(--blue); }
+.lk-ico svg { width: 20px; height: 20px; }
+.lk-desc { color: var(--muted); font-size: .92rem; margin: .5rem 0 .6rem; }
+.lk-restrict { border-color: var(--orange); }
+.lk-restrict .lk-ico { background: rgba(255,167,38,.18); color: #c26a00; }
+.lk-list { list-style: none; margin: 0; padding: 0; }
+.lk-list li { border-top: 1px solid var(--line); }
+.lk-list a { display: flex; align-items: center; gap: .8rem; padding: .75rem .3rem; text-decoration: none; font-weight: 700; line-height: 1.3; border-radius: 10px; }
+.lk-list a:hover { color: var(--blue); background: rgba(26,124,255,.06); }
+.lk-tag { flex: none; min-width: 3.8rem; text-align: center; font-family: var(--head); font-weight: 600; font-size: .68rem; letter-spacing: .04em; padding: .2rem .5rem; border-radius: 999px; background: var(--ice); color: var(--blue); border: 1px solid var(--line); }
+.lk-name { flex: 1; }
+.lk-note { display: block; font-weight: 600; font-size: .85rem; color: var(--muted); }
+.lk-list li[hidden], .lk-group[hidden] { display: none; }
+.lk-empty { display: none; text-align: center; color: var(--muted); padding: 2rem 0 0; font-weight: 700; }
+.lk-empty.show { display: block; }
+@media (max-width: 860px) { .lk-grid { grid-template-columns: 1fr; } }
+/* ---------- 5b. Redes Wi-Fi ---------- */
+.wf { background: var(--bg); padding: 0 0 clamp(2.5rem, 6vw, 4rem); margin-top: -1.5rem; position: relative; }
+.qrs { background: var(--ice); padding: clamp(2.5rem, 6vw, 4rem) 0; }
+.chip { display: inline-flex; align-items: center; gap: .45rem; font-family: var(--head); font-weight: 600; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--blue); background: rgba(26,124,255,.12); padding: .28rem .75rem; border-radius: 999px; }
+.chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+.h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 700; margin-top: .7rem; color: var(--text); }
+.h2 b { color: var(--blue); font-weight: 700; }
+.sub { color: var(--muted); margin-top: .6rem; max-width: 58ch; }
+.wf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; margin-top: 1.8rem; }
+.wf-card { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); padding: 1.3rem 1.4rem 1.4rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: .9rem; }
+.wf-card h3 { font-size: 1.1rem; font-weight: 700; }
+.wf-card h3 small { font-family: var(--body); font-weight: 700; font-size: .85rem; color: var(--muted); }
+.wf-restrict { border-color: var(--orange); }
+.wf-qr { width: 180px; height: 180px; background: #fff; padding: 8px; border-radius: 14px; border: 1px solid var(--line); }
+.wf-pass { display: flex; flex-direction: column; align-items: center; gap: .15rem; }
+.wf-pass span { font-size: .75rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.wf-pass code { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: 1.1rem; font-weight: 700; color: var(--text); background: var(--ice); border: 1px solid var(--line); border-radius: 10px; padding: .25rem .7rem; overflow-wrap: anywhere; }
+.wf-copy { font: inherit; font-weight: 800; font-size: .92rem; cursor: pointer; border: 0; border-radius: 999px; padding: .6rem 1.4rem; background: var(--blue); color: #fff; transition: background .15s; }
+.wf-copy:hover { background: #3a92ff; }
+.wf-copy.ok { background: #1f9d55; }
+.wf-status { min-height: 1.4em; margin-top: 1rem; text-align: center; font-weight: 700; color: var(--blue); }
+.qr-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.3rem; margin-top: 1.8rem; max-width: 760px; }
+.qr-note { color: var(--muted); font-size: .92rem; }
+.lk-btn { display: inline-block; text-decoration: none; font-weight: 800; font-size: .92rem; padding: .6rem 1.4rem; border-radius: 999px; background: var(--blue); color: #fff; }
+.lk-btn:hover { background: #3a92ff; }
+@media (max-width: 860px) { .wf-grid, .qr-grid { grid-template-columns: 1fr; max-width: 360px; margin-inline: auto; } }
+
+/* ---------- 6. Rodapé ---------- */
+footer { background: var(--navy); color: #c9dbfb; padding: 1.8rem 0 2rem; border-top: 1px solid rgba(255,255,255,.1); }
+footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.2rem 2.5rem; }
+footer .brand .owl { height: 44px; } footer .brand .word { height: 32px; }
+footer p { font-size: .9rem; }
